@@ -81,6 +81,62 @@ export default function App() {
           </View>
           <Text>3:55</Text>
         </View>
+                <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
+                <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
+                <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
+                <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
+                <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
+                <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
+                <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
+        <View style={styles.caixaMusica}>
+          <View>
+            <Text style={styles.deixaBonito}>Thunderstruck</Text>
+            <Text>AC/DC</Text>
+          </View>
+          <Text>3:55</Text>
+        </View>
 
       </View>
 
