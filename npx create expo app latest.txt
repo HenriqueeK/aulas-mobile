@@ -1,0 +1,5 @@
+npx create-expo-app@latest --template blank - BAIXAR EXPO, CRIAR PASTA (USAR DATA DE CRIAÇÃO)
+cd (nome da pasta) - ENTRAR NA PASTA
+npx expo start --tunnel - INICIAR NA UNIVATES COM NGROK (SE NECESSARIO INSTALAR O NGROK)
+npx expo start - INICIAR EM CASA (FORA DE REDE COMPLEXAS)
+
