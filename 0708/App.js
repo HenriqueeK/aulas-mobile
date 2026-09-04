@@ -8,7 +8,7 @@ export default function App() {
   const [number, onChangeNumber] = useState('');
   return (
     <View style={styles.container}>
-      <Text>Eai></Text>
+      <Text>Eai</Text>
       <SafeAreaProvider>
         <SafeAreaView>
           <TextInput
