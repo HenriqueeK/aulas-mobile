@@ -21,7 +21,16 @@ export default function Inicio() {
           Ver minhas flores →
         </Link>
       </View>
+
+      <View style={styles.cartao}>
+        <Text style={styles.cartaoTitulo}>Bordeis</Text>
+        <Link href="/bordeis" style={styles.link}>
+          Ver meus bordeis →
+        </Link>
+      </View>
     </SafeAreaView>
+
+    
   );
 }
 
