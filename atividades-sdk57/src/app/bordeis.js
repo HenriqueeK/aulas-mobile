@@ -136,3 +136,7 @@ const styles = StyleSheet.create({
     color: "#111827",
   },
 });
+  const [idEditando, setIdEditando] = useState(0);
+  useEffect(() => {
+    carregar();
+  }, []);

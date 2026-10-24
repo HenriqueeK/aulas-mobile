@@ -1,3 +1,0 @@
-<SafeAreaProvider>
-  <Stack />
-</SafeAreaProvider>

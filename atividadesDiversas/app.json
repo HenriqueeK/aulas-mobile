@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "0210sql",
-    "scheme": "aula1109",
-    "slug": "0210sql",
+    "name": "atividadesDiversas",
+    "slug": "atividadesDiversas",
+    "scheme": "atividadesDiversas",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,7 +23,8 @@
     },
     "plugins": [
       "expo-router",
-      "expo-status-bar"
+      "expo-status-bar",
+      "expo-sqlite"
     ]
   }
 }

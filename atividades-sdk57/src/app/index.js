@@ -28,6 +28,13 @@ export default function Inicio() {
           Ver meus bordeis →
         </Link>
       </View>
+
+      <View style={styles.cartao}>
+        <Text style={styles.cartaoTitulo}>API - Cachorro</Text>
+        <Link href="/fotoCachorro" style={styles.link}>
+          Ver cachorro aleatório →
+        </Link>
+      </View>
     </SafeAreaView>
 
     
