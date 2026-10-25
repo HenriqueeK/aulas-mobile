@@ -8,6 +8,13 @@ export default function Inicio() {
       <Stack.Screen options={{ title: "Atividades" }} />
 
       <View style={styles.cartao}>
+        <Text style={styles.cartaoTitulo}>Lista</Text>
+        <Link href="/lista" style={styles.link}>
+          Ver Lista →
+        </Link>
+      </View>
+
+      <View style={styles.cartao}>
         <Text style={styles.cartaoTitulo}>API - Cachorro</Text>
         <Link href="/fotoCachorro" style={styles.link}>
           Ver cachorro aleatório →
