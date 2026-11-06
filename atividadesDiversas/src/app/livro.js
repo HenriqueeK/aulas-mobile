@@ -4,23 +4,25 @@ import {StyleSheet,Text, View, Button, FlatList, TextInput} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, Stack } from "expo-router";
 
+const API_URL = "https://6a289af14e1e783349a5b48f.mockapi.io/api/livro/aviso";
+
 export default function Livro() {
   const [livros, setLivros] = useState([]);
   const [livro, setLivro] = useState("");
   const [comentario, setComentario] = useState("");
   const [nota, setNota] = useState(0);
   const [nomeUsuario, setNomeUsuario] = useState("");
+  const [idEditando, setIdEditando] = useState(0);
 
   async function buscarLivro() {
-    const resposta = await fetch(
-      "https://6a289af14e1e783349a5b48f.mockapi.io/api/livro/aviso",
-    );
+    const resposta = await fetch(API_URL);
     const dados = await resposta.json();
     setLivros(dados);
   }
 
   async function salvarLivro() {
-    await fetch("https://6a289af14e1e783349a5b48f.mockapi.io/api/livro/aviso", {
+    if (idEditando === 0) {
+    await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -30,6 +32,22 @@ export default function Livro() {
         nomeUsuario: nomeUsuario,
       }),
     });
+  }else{
+    await fetch(`${API_URL}/${idEditando}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        livro: livro,
+        comentario: comentario,
+        nota: nota,
+        nomeUsuario: nomeUsuario,
+  }),
+});
+
+
+    setIdEditando(0);
+}
+
     setLivro("");
     setComentario("");
     setNota("");
@@ -37,6 +55,22 @@ export default function Livro() {
 
     buscarLivro();
   }
+
+    async function excluir(id) {
+    await fetch(`${API_URL}/${id}`, {
+      method: "DELETE",
+    });
+    buscarLivro();
+  }
+
+    async function editar(item) {
+    setIdEditando(item.id);
+    setLivro(item.livro);
+    setComentario(item.comentario);
+    setNota(item.nota);
+    setNomeUsuario(item.nomeUsuario);
+  }
+
 
   useEffect(() => {
     buscarLivro();
@@ -72,15 +106,31 @@ export default function Livro() {
         placeholder="Nome de autor"
       />
 
-      <Button title="Salvar livro" onPress={salvarLivro} />
+      <Button title="Salvar livro" color="green" onPress={salvarLivro} />
 
       <FlatList
         style={styles.lista}
         data={livros}
         renderItem={({ item }) => (
-          <Text style={styles.item}>
-              {item.id} - {item.livro} -   {item.nota} - {item.comentario} - {item.nomeUsuario}
-          </Text>
+
+          <View style={styles.botaoLateral}>
+            <Text style={styles.item}>
+                {item.id} - {item.livro} -   {item.nota} - {item.comentario} - {item.nomeUsuario}
+            </Text>
+           <View style={styles.botao}>
+              <Button
+                title="Editar"
+                onPress={() => {
+                editar(item);
+                }}/>
+              <Button
+                title="🗑️"
+                color="red"
+                onPress={() => {
+                excluir(item.id);
+                }}/>
+              </View>
+          </View>
         )}
       />
     </SafeAreaView>
@@ -108,6 +158,7 @@ const styles = StyleSheet.create({
   lista: {
     flex: 1,
     marginTop: 16,
+
   },
 
   item: {
@@ -118,4 +169,17 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#111827",
   },
+
+  botaoLateral: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+    
+  },
+
+  botao: {
+    flexDirection: "row",
+    gap: 10,
+    marginTop: 10
+  }
 });
