@@ -28,10 +28,17 @@ export default function Inicio() {
         </Link>
       </View>
 
-            <View style={styles.cartao}>
+        <View style={styles.cartao}>
         <Text style={styles.cartaoTitulo}>API - Pokemon</Text>
         <Link href="/pokemon" style={styles.link}>
           Consultar Pokemon →
+        </Link>
+      </View>
+
+        <View style={styles.cartao}>
+        <Text style={styles.cartaoTitulo}>API - Cadastro de Livro</Text>
+        <Link href="/livro" style={styles.link}>
+          Ver Livros →
         </Link>
       </View>
     </SafeAreaView>
