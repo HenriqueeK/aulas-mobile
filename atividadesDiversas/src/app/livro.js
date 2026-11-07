@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import {StyleSheet,Text, View, Button, FlatList, TextInput} from "react-native";
+import {StyleSheet,Text, View, Button, FlatList, TextInput, Alert} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, Stack } from "expo-router";
 
@@ -71,7 +71,16 @@ export default function Livro() {
     setNomeUsuario(item.nomeUsuario);
   }
 
-
+  function confirmarExclusao(item){
+    Alert.alert(
+      "Excluir livro",
+      `Deseja realmente excluir?`,
+      [
+        { text: "Cancelar" },
+        { text: "Excluir", onPress: () => excluir(item.id) },
+      ]
+    );
+  }
   useEffect(() => {
     buscarLivro();
   }, []);
@@ -119,7 +128,7 @@ export default function Livro() {
             </Text>
            <View style={styles.botao}>
               <Button
-                title="Editar"
+                title="🖌️"
                 onPress={() => {
                 editar(item);
                 }}/>
@@ -127,7 +136,7 @@ export default function Livro() {
                 title="🗑️"
                 color="red"
                 onPress={() => {
-                excluir(item.id);
+                confirmarExclusao(item);
                 }}/>
               </View>
           </View>
@@ -174,7 +183,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
-    
   },
 
   botao: {
